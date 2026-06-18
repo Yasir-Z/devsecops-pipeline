@@ -108,10 +108,10 @@ jobs:
         username: ubuntu
         key: ${{ secrets.EC2_SSH_KEY }}
         script: |
-          docker pull ${{ secrets.DOCKERHUB_USERNAME }}/devsecops-app:latest
-          docker stop devsecops-app || true
-          docker rm devsecops-app || true
-          docker run -d \
+          sudo ocker pull ${{ secrets.DOCKERHUB_USERNAME }}/devsecops-app:latest
+          sudo docker stop devsecops-app || true
+          sudo docker rm devsecops-app || true
+          sudo docker run -d \
             --name devsecops-app \
             -p 5000:5000 \
             ${{ secrets.DOCKERHUB_USERNAME }}/devsecops-app:latest
